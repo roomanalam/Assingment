@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash,abort
+from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
 import datetime
 from flask_sqlalchemy import SQLAlchemy
