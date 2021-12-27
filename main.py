@@ -9,12 +9,13 @@ from wtforms import StringField, SubmitField
 from wtforms.fields.core import DateTimeField
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
+import os
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'any-secret-key-you-choose'
 ##Connect to Database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../Assignment-1/people.db'
+app.config['SQLALCHEMY_DATABASE_URI'] =os.environ.get("DATABASE_URI",'sqlite:///people.db') 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -41,7 +42,7 @@ class People(db.Model):
   age = db.Column(db.Integer,nullable=False)
   date_time = db.Column(db.DateTime,default=datetime.datetime.now,nullable=False)
 
-db.create_all()
+#db.create_all()
 
 @app.route("/")
 def home():
