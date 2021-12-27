@@ -1,14 +1,11 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
-import datetime
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
 from flask_wtf import FlaskForm
-from sqlalchemy.sql.expression import all_
 from wtforms import StringField, SubmitField
-from wtforms.fields.core import DateTimeField
 from wtforms.validators import DataRequired
-from flask_bootstrap import Bootstrap
+import datetime
 import os
 
 app = Flask(__name__)
